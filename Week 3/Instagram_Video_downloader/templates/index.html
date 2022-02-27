@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" href="{% static '/scss/sb-admin-2.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+    <title>Smart Download {% block title %} {%endblock title%} </title>
+</head>
+<body>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+                <header id="page-top">
+                    <nav class="navbar navbar-expand-lg navbar-white shadow">
+                        <a href="" class="navbar-brand text-success" style="font-weight: bold;">S-Download</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"><img src="{% static '/img/list.png' %}" class="img-thumbnail" alt=""></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav mr-auto mb-2 mb-md-0">                           
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://whispering-bayou-71399.herokuapp.com/eschool/courses">Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://whispering-bayou-71399.herokuapp.com/students/courses">Enrolled</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://whispering-bayou-71399.herokuapp.com/cv-master">CV Master</a>
+                              </li>
+                          </ul>
+                          
+                        </div>
+                    </nav>
+                  </header>           
+                    <div class="container-fluid bg-primary">
+                        <div class="d-block text-center">
+                            <h2 class="text-white font-weight-bold pt-4">Download Instagram video and Photos</h2>
+                            <form action="" class="" method="post">
+                                {% csrf_token %}
+                                <p class="p-4">
+                                    <label for="url" class="text-white">Enter Instagram url</label> <br>
+                                    <input type="url" name="url" id="url" class="form form-control" required placeholder="Enter the url">
+                                    <button class="btn m-2 btn-light">Check if URL has Images or Videos</button>
+                                </p>
+                            </form>
+                            {% block content %}
+
+                            {% endblock content %}
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <img src="{% static 'img/How to use S-Download.png' %}" class="img-fluid" alt="">
+                    </div>
+                </div> 
+                <div class="row justify-content-center">
+                    <div class="col-md-5 m-2 card border-0 p-0">
+                        <h5 class="card-header m-0 text-primary">Smart-Tech Limited</h5>
+                        <p class="card-body p-3 m-0">
+                            We offer variety of services such as
+                            <ul>
+                                <li><a href="https://whispering-bayou-71399.herokuapp.com/eschool">E-School</a> - Free learning oportunity for all</li>
+                                <li><a href="https://whispering-bayou-71399.herokuapp.com/ecomerce">E-Commerce</a> - Buy and sell goods of high quality at affordable price</li>
+                                <li><a href="https://whispering-bayou-71399.herokuapp.com/blog">Blogging services</a> - Interract with other users within smarttech, ask <br>questions get help and share idea</li>
+                                <li><a href="https://whispering-bayou-71399.herokuapp.com/cv-master">Master CV</a> - Generate CV for free</li>
+                            </ul>
+                            For more contact us through the button below
+                            <a href="tel:+254795067776"><button class="btn btn-primary btn-sm m-2">Contact</button></a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End of Main content -->
+        </div>
+        <!-- End of Content wrapper -->
+    </div>
+    <!-- End of Page wrapper -->
+    <!-- Footer -->
+    <footer class="py-3 bg-secondary">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="row">
+                <div class="col-sm-6">
+                    <h5 class="text-white">Smart-Tech</h5>
+                    <p><a class="text-light" href="https://whispering-bayou-71399.herokuapp.com/about">About Us</a></p>
+                    <p><a class="text-light" href="https://whispering-bayou-71399.herokuapp.com/services">Services</a></p>
+                    <p><a class="text-light" href="https://whispering-bayou-71399.herokuapp.com/contact">Contact Us</a></p>
+                    <p><a class="text-light" href="https://whispering-bayou-71399.herokuapp.com/subscribe">Subscribe</a></p>
+                    <button type="button" class="btn btn-sm btn-dft" onClick="history.back()"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back</button>
+                    <button class="btn btn-sm btn-dft m-2" onclick="history.forward()">Next <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                </div>
+                <div class="col-sm-6">
+                    <h5 class="text-white">Smart-Tech Services</h5>
+                    <p><a class="text-light" href="https://whispering-bayou-71399.herokuapp.com/blog">Smart-Tech Blog</a></p>
+                    <p><a class="text-light" href="https://whispering-bayou-71399.herokuapp.com/eschool">E-School</a></p>
+                    <p><a class="text-light" href="https://whispering-bayou-71399.herokuapp.com/ecomerce">E-comerce</a></p>
+                    <p><a class="text-light" href="https://whispering-bayou-71399.herokuapp.com/cv-master">Cv Generator</a></p>
+                    <p><a class="text-light" href="maito:theprogrammerjeff@gmail.com">E-Help and Support</a></p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <figure class="text-center">
+                <img src="{% static 'img/smarttech.png' %}" alt="..." class="img-fluid" style="border: none;" title="S Download logo">
+                <figcaption>
+                <a class="text-light ml-2" href="tel:+254795067776">Call</a> <a class="text-light ml-2" href="mailto:smarttech.allservices@gmail.com">Send Mail</a><a class="text-light ml-2" href="sms:+254795067776">Send Sms</a>
+                </figcaption>
+            </figure>
+        </div>
+            </div>
+        </div>
+        <div class="container">
+            <p class="m-0 text-center text-white t-h">Copyright &copy; Smart-Tech - {% now "Y" %}</p>
+        </div>
+    </footer>
+</body>
+    <script src="{% static '/bootstra.js' %}"></script>
+</html>

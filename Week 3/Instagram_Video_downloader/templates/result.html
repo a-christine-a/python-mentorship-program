@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}Result{% endblock title %}
+{% block content %}
+<div class="container-fluid">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert-{{ message.tags }} m-2" role="alert">
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="row justify-content-center">
+        {% if pic_url %}
+        <div class="col-xl-12">
+            <p class="font-weight-bold text-white">{{ no_pic}} Images Found</p>
+        </div>
+            {% for p_img in pic_url %}
+                <div class="card bg-white m-1" style="background: url({{p_img}}); background-size: cover; background-repeat: no-repeate; width: 150px">
+                    <h5 class="card-header">Image</h5>
+                    <img src="{% static '/img/photo.png' %}" class="card-img" alt="">
+                    <a href="{{p_img}}" class="btn btn-primary text-white m-2 btn-sm" download >Download</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="alert alert-warning">No Picture Found</p>
+        {% endif %}
+    </div>
+    <div class="row justify-content-center">
+        {% if vid_url %}
+        <div class="col-xl-12">
+            <p class="font-weight-bold text-white">{{ no_vid }} Videos Found</p>
+        </div>
+            {% for p_vid in vid_url %}
+                <div class="card bg-white m-1" style="background: url({{p_vid}}); background-size: cover; background-repeat: no-repeate; width: 150px">
+                    <h5 class="card-header">Image</h5>
+                    <img src="{% static '/img/download.png' %}" class="card-img" alt="">
+                    <a href="{{p_vid}}" class="btn btn-primary text-white m-2 btn-sm" download>Download</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="alert alert-warning">No video Found</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
